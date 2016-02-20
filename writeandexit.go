@@ -13,8 +13,7 @@ import (
 //AndExit adds a "github.com/juju/errors".Trace to the error, writethe error to STDERR, log the error, and finally
 //os.Exit with the specified exitCode
 func AndExit(err error, exitCode int) {
-	annotatedErr := errors.Trace(err)
-	s := errors.ErrorStack(annotatedErr)
+	s := errors.ErrorStack(err)
 	fmt.Fprintf(os.Stderr, s)
 	log.Println(s)
 	os.Exit(exitCode)
