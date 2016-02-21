@@ -3,7 +3,6 @@
 package writeerror
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -14,7 +13,6 @@ import (
 //os.Exit with the specified exitCode
 func AndExit(err error, exitCode int) {
 	s := errors.ErrorStack(err)
-	fmt.Fprintf(os.Stderr, s)
 	log.Println(s)
 	os.Exit(exitCode)
 }
